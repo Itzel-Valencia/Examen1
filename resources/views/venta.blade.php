@@ -46,8 +46,7 @@
         }else{
             $('#empleado').empty();
             $('#empleado').load("{{route('empleados')}}?id_tienda=" + valtienda).serialize();
-            $('#foto_tienda').empty();
-            $('#foto_tienda').load("{{route('foto_tienda')}}?id_tienda=" + valtienda).serialize();
+            $('#foto_tienda').load("{{route('foto_tienda')}}?id_tienda=" + valtienda);
         }
 
         });

@@ -8,6 +8,7 @@ Route::name('empleados')-> get('empleados/', 'App\Http\Controllers\examen_contro
 
 Route::name('foto_tienda')-> get('foto_tienda/', 'App\Http\Controllers\examen_controller@foto_tienda');
 
+Route::name('foto_empleado')-> get('foto_empleado/', 'App\Http\Controllers\examen_controller@foto_empleado');
 
 
 

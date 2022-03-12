@@ -31,7 +31,12 @@ class examen_controller extends Controller
 
     }
 
-
+    public function foto_empleado (Request $request){
+        $id_empleado = $request['id_empleado'];
+        $empleados = empleados::select('*')->where('id_empleado','=', $id_empleado)->get();
+        return view('datos.foto_empleado')
+        ->with(['empleados' => $empleados]);
+    }
 
 
 }
