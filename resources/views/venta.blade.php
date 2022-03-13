@@ -8,7 +8,8 @@
 
     </head>
     <body>
-        <h2> Examen Itzel Valencia Nava</h2>
+        <center>
+        <h2> Examen <!--Itzel Valencia Nava--></h2>
         <form action="" method="post">
             <select name="id_tienda" id="tienda">
                 @foreach($tiendas as $tienda)
@@ -28,9 +29,48 @@
         </div>
         <div id="foto_empleado"> 
             <img src="images/descarga.jpg" alt="foto" width="100" height="100"> 
-            
+        </div>
+        <br><br>
+        <div id="producto">
+        
+        </div>
+        <div id="guardar_venta">
+
+        </div>
+        <br><br>
+        <div id="guardar_venta">
+
         </div>
         </form>
+        @foreach($ventas as $venta)
+        <table>
+            <thead>
+                <tr>
+                    <td>#</td>
+                    <td>Producto</td>
+                    <td>Tienda</td>
+                    <td>Empleado</td>
+                    <td>Precio</td>
+                    <td>Cantidad</td>
+                    <td>total</td>
+                    <td>Fecha</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>{{$venta->id_venta}}</td>
+                    <td>{{$venta->producto}}</td>
+                    <td>{{$venta->tienda}}</td>
+                    <td>{{$venta->vendedor}}</td>
+                    <td>{{$venta->precio}}</td>
+                    <td>{{$venta->cantidad}}</td>
+                    <td>{{$venta->total}}</td>
+                    <td>{{$venta->created_at}}</td>
+                </tr>
+            </tbody>
+        </table>
+        @endforeach
+    </center>
     </body>
 </html>
 
@@ -47,6 +87,7 @@
             $('#empleado').empty();
             $('#empleado').load("{{route('empleados')}}?id_tienda=" + valtienda).serialize();
             $('#foto_tienda').load("{{route('foto_tienda')}}?id_tienda=" + valtienda);
+            $('#producto').load("{{route('producto')}}?id_tienda=" + valtienda);
         }
 
         });
