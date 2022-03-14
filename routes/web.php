@@ -13,3 +13,7 @@ Route::name('foto_empleado')-> get('foto_empleado/', 'App\Http\Controllers\exame
 Route::name('producto')-> get('producto/', 'App\Http\Controllers\examen_controller@producto');
 
 Route::name('crear_venta')-> get('crear_venta/', 'App\Http\Controllers\examen_controller@crear_venta');
+
+Route::name('guardar_venta')-> post('guardar_venta/', 'App\Http\Controllers\examen_controller@guardar_venta');
+
+Route::name('ventas')-> get('ventas/', 'App\Http\Controllers\examen_controller@ventas');

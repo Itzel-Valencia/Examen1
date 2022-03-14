@@ -9,11 +9,12 @@
     </head>
     <body>
         <center>
-        <h2> Examen <!--Itzel Valencia Nava--></h2>
-        <form action="" method="post">
+        <h2> Examen Itzel Valencia Nava</h2>
+        <form action="{{route('guardar_venta') }}" method="post">
+            @csrf
             <select name="id_tienda" id="tienda">
                 @foreach($tiendas as $tienda)
-                <option value="0"> Seleccine una Tienda</option>
+                <option value="0"> Seleccione una Tienda</option>
                 <option value="{{$tienda->id_tiendas}}">{{$tienda->nombre_tienda}}</option>
                 @endforeach
             </select>
@@ -42,34 +43,9 @@
 
         </div>
         </form>
-        @foreach($ventas as $venta)
-        <table>
-            <thead>
-                <tr>
-                    <td>#</td>
-                    <td>Producto</td>
-                    <td>Tienda</td>
-                    <td>Empleado</td>
-                    <td>Precio</td>
-                    <td>Cantidad</td>
-                    <td>total</td>
-                    <td>Fecha</td>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>{{$venta->id_venta}}</td>
-                    <td>{{$venta->producto}}</td>
-                    <td>{{$venta->tienda}}</td>
-                    <td>{{$venta->vendedor}}</td>
-                    <td>{{$venta->precio}}</td>
-                    <td>{{$venta->cantidad}}</td>
-                    <td>{{$venta->total}}</td>
-                    <td>{{$venta->created_at}}</td>
-                </tr>
-            </tbody>
-        </table>
-        @endforeach
+        <div id="ventas">
+
+        </div>
     </center>
     </body>
 </html>
@@ -92,6 +68,14 @@
 
         });
     
+    });
+</script>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        var refreshId = setInterval(function () {
+            $('#ventas').load("{{route('ventas')}}");
+        }, 1000);
     });
 </script>
 
